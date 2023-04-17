@@ -1,6 +1,5 @@
 package com.kk.memechallengecompose.ui.main
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -8,7 +7,6 @@ import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.kk.memechallengecompose.core.utils.ResponseHandler
-import com.kk.memechallengecompose.data.repository.RepositoryImp
 import com.kk.memechallengecompose.domain.model.Meme
 import com.kk.memechallengecompose.domain.repository.IRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -18,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val repository : RepositoryImp) : ViewModel() {
+    private val repository : IRepository) : ViewModel() {
 
     private val _state = mutableStateOf<MainViewState?>(MainViewState.Idle)
     val state : State<MainViewState?> get() = _state
